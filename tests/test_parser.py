@@ -78,7 +78,7 @@ class TestParser(unittest.TestCase):
                                                                ast.field('bar')))
 
     def test_unicode_literals_escaped(self):
-        self.assert_parsed_ast(r'`"\u2713"`', ast.literal(u'\u2713'))
+        self.assert_parsed_ast(r'`"\u2713"`', ast.literal('\u2713'))
 
     def test_multiselect(self):
         parsed = self.parser.parse('foo.{bar: bar,baz: baz}')
@@ -169,7 +169,7 @@ class TestErrorMessages(unittest.TestCase):
         error_message = re.compile(
             r'Bad jmespath expression: '
             r'Invalid \\uXXXX escape.*\\uAZ12', re.DOTALL)
-        with self.assertRaisesRegexp(exceptions.LexerError, error_message):
+        with self.assertRaisesRegex(exceptions.LexerError, error_message):
             self.parser.parse(r'"\uAZ12"')
 
 

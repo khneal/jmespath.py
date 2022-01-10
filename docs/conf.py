@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import guzzle_sphinx_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -28,8 +27,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'JMESPath'
-copyright = u'2014, James Saryerwinnie'
+project = 'JMESPath'
+copyright = '2014, James Saryerwinnie'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
