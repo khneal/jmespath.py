@@ -3,8 +3,6 @@ from pprint import pformat
 from tests import OrderedDict
 from tests import json
 
-from nose.tools import assert_equal
-
 from jmespath.visitor import Options
 
 
@@ -80,7 +78,7 @@ def _test_expression(given, expression, expected, filename):
                      actual_repr, pformat(parsed.parsed),
                      json.dumps(given, indent=4)))
     error_msg = error_msg.replace(r'\n', '\n')
-    assert_equal(actual, expected, error_msg)
+    assert actual == expected, error_msg
 
 
 def _test_error_expression(given, expression, error, filename):

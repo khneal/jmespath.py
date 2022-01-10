@@ -2,7 +2,6 @@ import math
 import json
 
 from jmespath import exceptions
-from jmespath.compat import string_type as STRING_TYPE
 from jmespath.compat import get_methods, with_metaclass
 
 
@@ -187,7 +186,7 @@ class Functions(with_metaclass(FunctionRegistry, object)):
 
     @signature({'types': []})
     def _func_to_string(self, arg):
-        if isinstance(arg, STRING_TYPE):
+        if isinstance(arg, str):
             return arg
         else:
             return json.dumps(arg, separators=(',', ':'),
@@ -228,7 +227,7 @@ class Functions(with_metaclass(FunctionRegistry, object)):
 
     @signature({'types': ['array', 'string']})
     def _func_reverse(self, arg):
-        if isinstance(arg, STRING_TYPE):
+        if isinstance(arg, str):
             return arg[::-1]
         else:
             return list(reversed(arg))
@@ -293,7 +292,7 @@ class Functions(with_metaclass(FunctionRegistry, object)):
 
     @signature({'types': []})
     def _func_type(self, arg):
-        if isinstance(arg, STRING_TYPE):
+        if isinstance(arg, str):
             return "string"
         elif isinstance(arg, bool):
             return "boolean"
